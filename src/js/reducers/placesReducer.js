@@ -1,22 +1,23 @@
 export default function reducer(state={
-    user: {
-      id: null,
-      name: null,
-      age: null,
+    geoInfo: {
+      Canada: { Ontario: {}, BritshColumbia: {}, Quebec: {}},
+      US: {Alabama:{}, Massachusetts: {}, NewYork: {}}
     },
+    selectedCountry: "Canada", //defaults to
+    selectedState: "Montreal", //defaults to
     fetching: false,
     fetched: false,
     error: null,
   }, action) {
 
     switch (action.type) {
-      case "FETCH_USER": {
+      case "FETCH_PLACES": {
         return {...state, fetching: true}
       }
-      case "FETCH_USER_REJECTED": {
+      case "FETCH_PLACES_REJECTED": {
         return {...state, fetching: false, error: action.payload}
       }
-      case "FETCH_USER_FULFILLED": {
+      case "FETCH_PLACES_FULFILLED": {
         return {
           ...state,
           fetching: false,
@@ -24,16 +25,16 @@ export default function reducer(state={
           user: action.payload,
         }
       }
-      case "SET_USER_NAME": {
+      case "SET_COUNTRY": {
         return {
           ...state,
-          user: {...state.user, name: action.payload},
+          geoInfo: {...state.geoInfo, selectedCountry: action.payload},
         }
       }
-      case "SET_USER_AGE": {
+      case "SET_STATE": {
         return {
           ...state,
-          user: {...state.user, age: action.payload},
+          geoInfo: {...state.geoInfo, selectedState: action.payload},
         }
       }
     }
