@@ -26,15 +26,16 @@ export default function reducer(state={
         }
       }
       case "SET_COUNTRY": {
+        console.log('111' + action.payload)
         return {
           ...state,
-          geoInfo: {...state.geoInfo, selectedCountry: action.payload},
+          selectedCountry: action.payload,
         }
       }
       case "SET_STATE": {
         return {
           ...state,
-          geoInfo: {...state.geoInfo, selectedState: action.payload},
+          selectedState: action.payload,
         }
       }
     }
