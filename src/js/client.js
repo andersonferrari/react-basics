@@ -12,11 +12,13 @@ import store from "./store"
 const app = document.getElementById('app');
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={Layout}>
-      <IndexRoute component={Landing} />
-      <Route path="country" component={Country} />
-      <Route path="state" component={State} />
-    </Route>
-  </Router>, 
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={Layout}>
+        <IndexRoute component={Landing} />
+        <Route path="country" component={Country} />
+        <Route path="state" component={State} />
+      </Route>
+    </Router>
+  </Provider>, 
 app);

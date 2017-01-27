@@ -1,18 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { placesActions } from '../../actions/placesActions.js'
+import { fetchPlaces } from '../../actions/placesActions'
 
-// @connect(( store ) => {
-//   return { ???
-
-//   }
-// })
+@connect(( store ) => {
+  console.log(store);
+   return { 
+     selectedCountry: store.places.selectedCountry
+   }
+})
 export default class PropertySearch extends React.Component{
+  componentWillMount() {
+    this.props.dispatch(fetchPlaces())
+  }
   render() {
+    const { selectedCountry } = this.props;
     return (
       <div>
-        <p> MAP GOES HERE </p>
+        <p> MAP GOES HERE: {selectedCountry} </p>
       </div>
     )
   }
