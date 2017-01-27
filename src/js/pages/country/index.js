@@ -1,5 +1,5 @@
 import React from "react"
-import PropertySearch from "../../actions/placesActions"
+import PropertySearch from "../../common/propertySearch/index"
 
 export default class Country extends React.Component {
   render() {

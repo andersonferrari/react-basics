@@ -1,7 +1,7 @@
 import React from 'react'
-import { connect } from 'react-readux'
+import { connect } from 'react-redux'
 
-import { placesActions } from '../actions/placesActions.js'
+import { placesActions } from '../../actions/placesActions.js'
 
 // @connect(( store ) => {
 //   return { ???
