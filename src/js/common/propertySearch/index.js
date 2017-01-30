@@ -18,7 +18,7 @@ export default class PropertySearch extends React.Component{
     this.props.dispatch(fetchPlaces())
   }
   setCountryName(name) {
-    this.props.dispatch(setCountry("EU"));
+    this.props.dispatch(setCountry(name));
   }
   render() {
     const { selectedCountry } = this.props;
